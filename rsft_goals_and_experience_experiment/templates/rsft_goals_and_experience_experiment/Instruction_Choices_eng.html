@@ -1,0 +1,30 @@
+{% extends "rsft_goals_and_experience_experiment/Page.html" %}
+{% load otree static %}
+{% load i18n %}
+
+{% block title %}
+  {% blocktrans trimmed %} Main Experiment
+  {% endblocktrans %}
+{% endblock %}
+
+
+{% block content %}
+
+  {% if sample_condition == 1 %}
+     <p>{% blocktrans trimmed %}
+         On the next pages you will see 15 blocks (learning phases with maximum {{ num_samples }} decisions per block and choice phases with {{ num_trials }} each). Please complete a single block in one go without longer breaks. You can take short breaks (a couple of minutes) <b>between</b> blocks, if you like.
+     {% endblocktrans %}</p>
+  {% else %}
+     <p>{% blocktrans trimmed %}
+        On the next pages you will see 15 blocks (learning phases with maximum {{ num_samples }} decisions per block and choice phases with {{ num_trials }} each). Please complete a single block in one go without longer breaks. You can take short breaks (a couple of minutes) <b>between</b> blocks, if you like.
+        {% endblocktrans %}</p>
+  {% endif %}
+
+<p>{% blocktrans trimmed %}
+	Click on "Next" to start the first block.
+{% endblocktrans %}</p>
+
+  {% next_button %}
+
+{% endblock %}
+
