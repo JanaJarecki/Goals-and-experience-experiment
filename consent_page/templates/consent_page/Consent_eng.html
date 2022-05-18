@@ -1,73 +1,89 @@
-{% extends "exp_files/SurveyPage.html" %}
+{% extends "global/SurveyPage.html" %}
 {% load otree static %}
 {% load i18n %}
 
 {% block title %}
-    {% blocktrans trimmed %}Informed Consent{% endblocktrans %}
+    Informed Consent
 {% endblock %}
 
 
 {% block content %}
-  <div class = "dialogue" id = "checkdisplay">
-    <p>You need a screen wider than 800px for this study. Cellphones won't work, a tablet may work.</p>
+  <div id = "checkdisplay" class = "hidden">
+    <p>Dear participant, <br>
+    <b>Attention</b>: You need a screen wider than 800px for this study, but your screen is not wide enough. Phone screens do not work, a tablet may work if the screen is sufficiently wide.</p>
+    </div>
+  <div>
+
+  <div id = "content">
+    <p> Dear participant, <br>
+    thank you for your interest in taking part in this study. The aim of this study is to investigate decision making. The study will take around {{duration}} minutes to complete.
+    </p>
+
+    <p>In this study you will be asked to make multiple decisions and afterwards you will be asked to answer demographic questions and short questionnaires. Please note that the study also contains attention check choices and attention check questions. Attention check choices are easy decisions, which consist of a choice situation for which the best answer is obvious.
+    </p>
+
+    <h3>Risks</h3>
+    <p>Participation in this study poses no risk to your health, as far as we know. The questionnaires in this study can contain questions of personal nature.
+    </p>
+
+    <h3>Remuneration</h3>
+    <p>This study is financed by the Center for Economic Psychology at the University of Basel. Your participation will be compensated at {{ participation_fee }} for this study. You can win a bonus compensation, the exact height of your bonus payment depends on your choices during the course of the study.
+    </p>
+
+
+    <h3>Data Collection and Storage</h3>
+    <p>All data collected in this study will be stored and analyzed anonymized and will be used for scientific research. The findings of this study will be presented in an anonymized and summarized way when presented to a scientific conference, a scientific journal or if publicized in any other medias.
+    </p>
+    <p>The anonymized data – referring to the data without information that could identify individuals – will be publicized in online databanks for other researchers to use, to accelerate scientific progress. Before publicizing the data, we will delete or alter all information that could, according to the current state of knowledge, lead to an identification of your person. Especially any data concerning your IP-address, name, date of birth and e-mail address will be deleted. The data made public will include age, income, education (highest current degree), occupation, and number sense. Please note: By participating in this study you are agreeing to the publication of your anonymized data.
+    </p>
+
+    <h3>Withdrawal</h3>
+    <p>Your participation is voluntary. You can, at any time, stop your participation without stating any reason. Your consent to the use of your data can be withdrawn, at any time during the study and without stating any reason. Withdrawal of consent to usage of data can not be done after ending the study, because of the anonymized data storage".
+    </p>
+
+    <h3>Duration</h3>
+    <p>Please ensure, that you have <b>{{ duration }} minutes undisturbed time</b> to participate in the study.
+    </p>
+
+    <h3>{% blocktrans trimmed %}Open Questions{% endblocktrans %}</h3>
+    <p>{% blocktrans trimmed %} If you have questions regarding this study, please contact m.durrer@stud.unibas.ch.
+    {% endblocktrans %}
+    </p>
+    
+    <p><b>I am at least 18 years old and have read and understood the listed terms and conditions, and had enough time come to a decision. I am willing to participate in this study under the listed terms and conditions.
+    </b></p>
+
+    </div>
+
+    <p><i>Please copy/print this consent form for your records.</i></p>
+
+    {% next_button %}
   </div>
-<div>
-  <h3>{% blocktrans trimmed %}Introduction{% endblocktrans %}</h3>
-  <p> {% blocktrans trimmed %} Dear participant, <br> thank you for your interest in taking part in this study. The aim of this study is to investigate human decision making. The study will take around {{duration}} minutes to complete.
-  {% endblocktrans %} </p>
-
-
-
-  <p>{% blocktrans trimmed %} 
-    In this study you will be asked to choose between two options. Afterwards you will be asked to answer demographic questions as well as some short questionnaires. Please note that the study also contains attention check choices and attention check questions. Attention check choices are easy decisions, which consist of a choice situation for which the best answer is obvious.
-  {% endblocktrans %}
-  </p>
-
   
-  <!-- Die Aufwandsentschädigung erhalten Sie nur persönlich an der Universität Basel. Die Studie wird durch den Lehrstuhl für ökonomische Psychologie an der Universität Basel finanziert. -->
-
-  <h3>{% blocktrans trimmed %}Risks{% endblocktrans %}</h3>
-  <p>{% blocktrans trimmed %}
-  Participation in this study poses no risk to your health. The questionnaires can contain questions of personal nature.  {% endblocktrans %}
-  </p>
-
-  <h3>{% blocktrans trimmed %}Remuneration{% endblocktrans %}</h3>
-  <p> {% blocktrans trimmed %}
-  This study is financed by the Center for Economic Psychology at the University of Basel. Your participation will be compensated at {{ participation_fee }} for this study. You can win a bonus compensation, the exact height of your bonus payment depends on your choices during the course of the study.{% endblocktrans %}
-  </p>
-
-
-  <h3>{% blocktrans trimmed %}Data Collection and Storage{% endblocktrans %}</h3>
-  <p>{% blocktrans trimmed %}
-      All data collected in this study will be stored and analyzed anonymized and will be used for scientific research. The findings of this study will be presented in an anonymized and summarized way when presented to a scientific conference, a scientific journal or if publicized in any other medias.
-     {% endblocktrans %}
-  <p>{% blocktrans trimmed %}
-      The anonymized data – referring to the data without information that could identify individuals – will be publicized in online databanks for other researchers to use, to accelerate scientific progress. Before publicizing the data, we will delete or alter all information that could, according to the current state of knowledge, lead to an identification of your person. Especially any data concerning your IP-address, name, date of birth and e-mail address will be deleted. The data made public will include age, income, education (highest current degree), occupation, and number sense. Please note: By participating in this study you are agreeing to the publication of your anonymized data.
-     {% endblocktrans %}
-  </p>
-
-  <h3>{% blocktrans trimmed %}Withdrawal{% endblocktrans %}</h3>
-  <p>{% blocktrans trimmed %}
-      Your participation is voluntary. You can, at any time, stop your participation without stating any reason. Your consent to the use of your data can be withdrawn, at any time during the study and without stating any reason. Withdrawal of consent to usage of data can not be done after ending the study, because of the anonymized data storage".
-   {% endblocktrans %}
-  </p>
-
-   <h3>{% blocktrans trimmed %}Open Questions{% endblocktrans %}</h3>
-  <p>{% blocktrans trimmed %}
-  	If you have questions regarding this study, please contact
-  	m.durrer@stud.unibas.ch.
-  {% endblocktrans %}
-  </p>
-</div>
-  <p>Please copy/screenshot this consent form for your records.</p>
-
-  <p><strong>{% blocktrans trimmed %}
-      I am at least 18 years old and have read and understood the listed terms and conditions, and had enough time come to a decision. I am willing to participate in this study under the listed terms and conditions.
-  {% endblocktrans %}
-  </strong></p>
-
-  {% next_button %}
-
 {% endblock %}
 
 
+
+
+
+// --------------------------------------------------------------------------
+// The following script shows the message about the display if the display width is below 800 by removing the class "hidden" from the id = "checkdisplay"
+{% block scripts %}
+<script>
+var min_width = 800;
+if ($(window).width() < min_width) {
+  $("#checkdisplay").removeClass("hidden");
+  $("#content").addClass("hidden");
+}
+
+window.addEventListener("resize", function() {
+  if (window.matchMedia("(min-width: " + min_width + "px)").matches) {
+    $("#checkdisplay").addClass("hidden");
+    $("#content").removeClass("hidden");
+  } else {
+    $("#checkdisplay").removeClass("hidden");
+    $("#content").addClass("hidden");
+  }
+})
+</script>
+{% endblock %}

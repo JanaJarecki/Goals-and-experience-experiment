@@ -1,17 +1,15 @@
-{% extends "exp_files/Page.html" %}
+{% extends "global/Page.html" %}
 {% load static otree %}
 {% load i18n %}
 
 <!-- =====================================================================
-This code loads the css styles. They are in the folder: static/css/
-css styles: Text files with the ending "css" that define the
-layout (fonts, font size, colors, etc) of the html pages
+This code loads the css styles for THIS task/experiment.
+Global style changes are made in the GLOBAL folder _static/global/theme.css and loaded in _templates/global/Page.html
 ===================================================================== -->
 {% block app_styles %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/theme.css' %}" >
-  <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}" >
   <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/sprites.css' %}" >
+  <link rel="stylesheet" type="text/css" href="{% static 'css/rsf.css' %}" >
 {% endblock %}
 
 

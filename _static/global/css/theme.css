@@ -1,0 +1,195 @@
+/*  =========================================================================
+This is a global style for all apps
+Author: Jana B. Jarecki
+========================================================================== */
+
+
+/*  =========================================================================
+  
+  # Introduction
+  For an introduction to how to change the format, please read: 
+  
+  https://www.w3schools.com/css/css_intro.asp
+
+========================================================================== */
+
+
+
+/*  =========================================================================  
+  Overall color scheme as variables and downloading fonts
+========================================================================== */
+/* We download the fonts that we use in all apps */
+/* Do not write any code before this */
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Open+Sans:wght@400;600&display=swap');
+
+/* We create variables for colors that we use throughout all apps,
+      which we use by, for example, "color: var(--main-color);" */
+:root {
+  /* General variables for the color scheme of the experiment */
+  --dark-color: rgb(120,120,120); /*h1 heading */
+  --main-color: rgb(120, 120, 120); /* next-button, headings, selected answers */
+  --light-color: rgb(123, 197, 174); /* mouse over next-button, example text */
+  --lightest-color: rgb(209, 237, 225); /* empty radio buttons or textfields */
+  /* Font colors */
+  --text-color: black; /* color of all normal text*/
+  --text-light-color: #999; /* for text, that is not that key */
+  --text-error-color: rgb(255, 32, 33); /* errors such as forgetting a survey answer, attention-check */
+}
+
+
+/*  ======================================================================== */
+
+
+
+
+/*  =========================================================================  
+  Overall styles for specific elements in the webpage
+========================================================================== */
+
+/* ---------------------------------------------------------------------------
+General settings for the body of every page
+--------------------------------------------------------------------------- */
+.otree-body, ._otree-content {
+  width: 750px; /* how wide is the content area on the screen? */
+  max-width: 95%; /* maximum width as % of the screen width */
+  display: block !important;
+}
+
+
+html, body, p, span, li, ul, a, b, i, mark, strong,  fieldset, legend, title, h2new, h2, h3, h4, .option, .btn, .goal-reached-info p, .chart-trial, .chart-earnings, .example {
+  font-family:  "Open Sans", Helvetica, Verdana, Arial, sans-serif !important;
+  font-size:    13px;
+  line-height:  1.4em; 
+  font-weight:  400;
+  color:        var(--text-color);
+}
+
+h1, h2.otree-title {
+  color:          var(--dark-color);
+  font-size:      2em; /* we enlarge it to 2 x the size of the text (em)*/
+  margin-top:     1em;
+  margin-bottom:  .2em;
+  text-align:     center !important; /* we alogn the heading to the center */
+}
+
+h1, h2, h3 {
+  font-family:      "Raleway", "Helvetica", "Arial", sans-serif !important;
+}
+
+h2, h3 {
+  color:            var(--main-color); /* we color this differently */
+  font-size:        1.5em; /* we enlarge it to 1.2 x the size of the text */
+  margin-top:       1em;
+  margin-bottom:    .2em;
+}
+
+.page-header {
+    margin: 40px 0 40px;
+    padding: 0;
+    border-bottom: none;
+}
+
+
+
+/* ---------------------------------------------------------------------------
+Settings for buttons like the "next" button
+--------------------------------------------------------------------------- */
+/* General buttons */
+button {
+  border: none;
+  background: transparent;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/* The "Next" Button */
+.otree-btn-next {
+    color: white !important;
+    background-color: var(--main-color) !important;
+    border-radius: 15px !important;
+    border: none !important;
+    line-height: 1.5;
+    padding: .3rem .9rem;
+    margin-top: 5vh;
+    margin-left: 50vh;
+    outline: none;
+    margin: 40px auto;
+    display: inherit;
+  }
+
+.otree-btn-next:hover,
+.otree-btn-next:focus,
+.otree-btn-next:active {
+  background-color: var(--light-color) !important;
+  color: var(--text-color) !important;
+  outline: none !important;
+}
+
+ /* DO NOT DELETE THIS CLASS */
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+/* btn class */
+.btn {
+  color: inherit;
+  outline: none;
+}
+
+.btn:focus,
+.btn:hover,
+.btn:active,
+.btn:enabled {
+  border: none;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.otree-form-errors, .form-control-errors {
+  color: var(--text-error-color);
+}
+
+
+
+/* ---------------------------------------------------------------------------
+Attention Check Formular
+--------------------------------------------------------------------------- */
+.rsft-form p {
+  float: left;
+  font-size: .9rem;
+  font-weight: normal;
+  margin-right: 0px;
+  margin-left: 20px;
+}
+
+.rsft-form input:([type="radio"]):([type="checkbox"]),
+.rsft-form label:([type="radio"]):([type="checkbox"]) {
+  display: block;
+}
+
+.rsft-form label {
+  font-weight: bold;
+}
+
+.rsft-form label {
+  margin-bottom: 0;
+}
+
+.rsft-form input {
+  margin-top: 2px;
+  margin-left: 5px;
+  padding: 2px;
+  border-radius: 0px;
+  border: 1px solid grey;
+  font-style: italic;
+  background:rgb(250,250,250);
+;
+}
+
+.rsft-form input:focus {
+  outline: none;
+  background: white;
+}
